@@ -2,6 +2,15 @@
 
 import { motion } from "framer-motion";
 
+function isSafeUrl(url: string): boolean {
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === "https:" || parsed.protocol === "http:";
+  } catch {
+    return false;
+  }
+}
+
 interface Project {
   id: string;
   name: string;
@@ -24,9 +33,11 @@ const statusColors = {
 };
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
+  const safeUrl = isSafeUrl(project.url) ? project.url : "#";
+
   return (
     <motion.a
-      href={project.url}
+      href={safeUrl}
       target="_blank"
       rel="noopener noreferrer"
       className="block panel-border panel-border-hover bg-terminal-panel p-5 group relative overflow-hidden"

@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 
+const YEAR = new Date().getFullYear();
+
 export function Footer() {
   return (
     <motion.footer
@@ -12,8 +14,8 @@ export function Footer() {
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between text-xs text-terminal-muted">
         <span className="tracking-widest">NETHUM.WEERASINGHE // SYS</span>
-        <span className="tracking-wider">
-          {new Date().getFullYear()} // ALL SYSTEMS OPERATIONAL
+        <span className="tracking-wider" suppressHydrationWarning>
+          {YEAR} // ALL SYSTEMS OPERATIONAL
         </span>
       </div>
     </motion.footer>
