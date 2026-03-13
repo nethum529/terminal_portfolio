@@ -14,6 +14,9 @@ interface TerminalWindowProps {
   glitch?: boolean;
   glisten?: boolean;
   bounce?: boolean;
+  float?: boolean;
+  floatDuration?: number;
+  floatDelay?: number;
 }
 
 export function TerminalWindow({
@@ -26,6 +29,9 @@ export function TerminalWindow({
   glitch = false,
   glisten = false,
   bounce = false,
+  float = false,
+  floatDuration = 4,
+  floatDelay = 0,
 }: TerminalWindowProps) {
   const [isGlitching, setIsGlitching] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -36,49 +42,53 @@ export function TerminalWindow({
       const wait = 5000 + Math.random() * 9000;
       timerRef.current = setTimeout(() => {
         setIsGlitching(true);
-        setTimeout(() => {
-          setIsGlitching(false);
-          schedule();
-        }, 240);
+        setTimeout(() => { setIsGlitching(false); schedule(); }, 280);
       }, wait);
     };
     schedule();
     return () => { if (timerRef.current) clearTimeout(timerRef.current); };
   }, [glitch]);
 
-  const springTransition = {
-    type: "spring" as const,
-    stiffness: 90,
-    damping: 14,
-    delay,
-  };
-  const easeTransition = { duration: 0.38, delay, ease: "easeOut" as const };
-
-  return (
+  const panel = (
     <motion.div
       className={[
         "t-panel overflow-hidden",
         glow ? "t-panel-glow" : "",
         isGlitching ? "panel-glitching" : "",
         className,
-      ].join(" ")}
-      initial={{ opacity: 0, y: bounce ? 14 : 7 }}
+      ].filter(Boolean).join(" ")}
+      initial={{ opacity: 0, y: bounce ? 16 : 8 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={bounce ? springTransition : easeTransition}
+      transition={
+        bounce
+          ? { type: "spring", stiffness: 88, damping: 14, delay }
+          : { duration: 0.38, delay, ease: "easeOut" }
+      }
     >
-      {/* Title bar */}
       <div className="t-header">
         <span className="t-dots">● ● ●</span>
         <span className="t-title">{title}</span>
         {tag && <span className="t-tag">{tag}</span>}
       </div>
-
-      {/* Body */}
       <div className="t-body">{children}</div>
-
-      {/* Edge glisten */}
       {glisten && <GlistenEffect />}
+    </motion.div>
+  );
+
+  if (!float) return panel;
+
+  return (
+    <motion.div
+      animate={{ y: [0, -5, 0] }}
+      transition={{
+        duration: floatDuration,
+        repeat: Infinity,
+        ease: "easeInOut",
+        delay: floatDelay,
+      }}
+    >
+      {panel}
     </motion.div>
   );
 }
