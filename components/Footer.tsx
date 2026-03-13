@@ -7,16 +7,14 @@ const YEAR = new Date().getFullYear();
 export function Footer() {
   return (
     <motion.footer
-      className="border-t border-terminal-border bg-terminal-bg py-6"
+      className="border-t border-white/8 py-5 mt-6"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between text-xs text-terminal-muted">
-        <span className="tracking-widest">NETHUM.WEERASINGHE // SYS</span>
-        <span className="tracking-wider" suppressHydrationWarning>
-          {YEAR} // ALL SYSTEMS OPERATIONAL
-        </span>
+      <div className="max-w-5xl mx-auto px-5 flex items-center justify-between">
+        <span className="label">NETHUM.WEERASINGHE</span>
+        <span className="label" suppressHydrationWarning>{YEAR}</span>
       </div>
     </motion.footer>
   );

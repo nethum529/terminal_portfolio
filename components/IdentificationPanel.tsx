@@ -2,98 +2,73 @@
 
 import { motion } from "framer-motion";
 import { Panel } from "./ui/Panel";
-import { TerminalLine } from "./ui/TerminalLine";
-import { StatusDot } from "./ui/StatusDot";
 
 export function IdentificationPanel() {
   return (
-    <section id="identity" className="max-w-6xl mx-auto px-6 py-16">
-      <motion.div
-        className="text-xs text-terminal-muted tracking-[0.4em] uppercase mb-8 flex items-center gap-4"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-      >
-        <span>// IDENTIFICATION</span>
-        <div className="flex-1 h-px bg-terminal-border" />
-        <span>SEC.01</span>
-      </motion.div>
+    <section id="identity" className="max-w-5xl mx-auto px-5 py-10">
+      <SectionHeader label="// IDENTIFICATION" index="01" />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        {/* Bio panel */}
-        <Panel title="BIO" tag="SUBJECT" className="lg:col-span-2" delay={0.1}>
-          <div className="space-y-3">
-            <TerminalLine
-              prompt=">"
-              text="Student researcher at Texas A&M University"
-              delay={0.2}
-            />
-            <TerminalLine
-              prompt=">"
-              text="Currently operating at Sketch Recognition Labs"
-              delay={0.3}
-            />
-            <TerminalLine
-              prompt=">"
-              text="Focus: HCI, gesture recognition, intelligent interfaces"
-              delay={0.4}
-            />
-            <TerminalLine
-              prompt=">"
-              text="Primary language: C++ — preferred for performance-critical systems"
-              delay={0.5}
-            />
-            <TerminalLine
-              prompt=">"
-              text="Building across full-stack web and systems domains"
-              delay={0.6}
-            />
+        <Panel title="BACKGROUND" className="lg:col-span-2" delay={0.1}>
+          <div className="space-y-2.5 text-xs text-mono-muted leading-relaxed">
+            {[
+              "Student researcher at Texas A&M University",
+              "Operating at Sketch Recognition Labs — HCI & gesture research",
+              "Building across full-stack web and systems engineering",
+              "Eligible to work in the U.S. with no restrictions",
+            ].map((line, i) => (
+              <motion.div
+                key={i}
+                className="flex gap-2.5"
+                initial={{ opacity: 0, x: -6 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: 0.15 + i * 0.07 }}
+              >
+                <span className="text-mono-dim select-none shrink-0">›</span>
+                <span>{line}</span>
+              </motion.div>
+            ))}
           </div>
         </Panel>
 
-        {/* Status panel */}
-        <Panel title="SYSTEM STATUS" tag="LIVE" delay={0.2}>
-          <div className="space-y-4">
-            <div className="flex justify-between items-center text-xs border-b border-terminal-dim/30 pb-2">
-              <span className="text-terminal-muted">NODE</span>
-              <StatusDot status="active" label="ONLINE" />
-            </div>
-            <div className="flex justify-between items-center text-xs border-b border-terminal-dim/30 pb-2">
-              <span className="text-terminal-muted">RESEARCH</span>
-              <StatusDot status="active" label="RUNNING" />
-            </div>
-            <div className="flex justify-between items-center text-xs border-b border-terminal-dim/30 pb-2">
-              <span className="text-terminal-muted">PROJECTS</span>
-              <StatusDot status="active" label="ACTIVE" />
-            </div>
-            <div className="flex justify-between items-center text-xs">
-              <span className="text-terminal-muted">AVAILABILITY</span>
-              <StatusDot status="active" label="OPEN" />
-            </div>
-
-            <div className="mt-4 pt-3 border-t border-terminal-border">
-              <div className="text-xs text-terminal-muted mb-2 tracking-wider">
-                UPTIME
-              </div>
-              <motion.div
-                className="h-1 bg-terminal-dim rounded-full overflow-hidden"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
+        <Panel title="LINKS" delay={0.2}>
+          <div className="space-y-3 text-xs">
+            {[
+              { label: "GITHUB",   href: "https://github.com/nethum529",    display: "nethum529" },
+              { label: "LINKEDIN", href: "https://linkedin.com/in/nethum",  display: "in/nethum" },
+            ].map(({ label, href, display }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between border-b border-white/5 pb-2.5 group"
               >
-                <motion.div
-                  className="h-full bg-terminal-glow"
-                  initial={{ width: "0%" }}
-                  whileInView={{ width: "92%" }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-                />
-              </motion.div>
-              <div className="text-xs text-terminal-glow mt-1">92%</div>
-            </div>
+                <span className="label">{label}</span>
+                <span className="text-mono-muted group-hover:text-mono-text transition-colors">
+                  {display} →
+                </span>
+              </a>
+            ))}
           </div>
         </Panel>
       </div>
     </section>
+  );
+}
+
+export function SectionHeader({ label, index }: { label: string; index: string }) {
+  return (
+    <motion.div
+      className="flex items-center gap-4 mb-5"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+    >
+      <span className="label">{label}</span>
+      <div className="flex-1 h-px bg-white/8" />
+      <span className="label">SEC.{index}</span>
+    </motion.div>
   );
 }

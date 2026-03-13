@@ -17,20 +17,12 @@ interface Project {
   description: string;
   url: string;
   type: "LIVE" | "REPO";
-  tags: string[];
-  status: "ACTIVE" | "ARCHIVED" | "WIP";
 }
 
 interface ProjectCardProps {
   project: Project;
   index: number;
 }
-
-const statusColors = {
-  ACTIVE: "text-terminal-success",
-  ARCHIVED: "text-terminal-muted",
-  WIP: "text-terminal-warning",
-};
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
   const safeUrl = isSafeUrl(project.url) ? project.url : "#";
@@ -40,51 +32,37 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       href={safeUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="block panel-border panel-border-hover bg-terminal-panel p-5 group relative overflow-hidden"
-      initial={{ opacity: 0, y: 16 }}
+      className="block panel group relative overflow-hidden"
+      initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.12 }}
+      transition={{ duration: 0.4, delay: index * 0.1 }}
+      whileHover={{
+        boxShadow: "0 8px 40px rgba(0,0,0,0.95), 0 0 0 1px rgba(255,255,255,0.2)",
+        y: -3,
+        transition: { duration: 0.18 },
+      }}
     >
       {/* Corner accent */}
-      <div className="absolute top-0 right-0 w-12 h-12 overflow-hidden">
-        <div className="absolute top-0 right-0 w-px h-8 bg-terminal-glow opacity-20 group-hover:opacity-60 transition-opacity duration-300" />
-        <div className="absolute top-0 right-0 h-px w-8 bg-terminal-glow opacity-20 group-hover:opacity-60 transition-opacity duration-300" />
-      </div>
+      <div className="absolute top-0 right-0 w-8 h-px bg-white/20 group-hover:bg-white/40 transition-colors duration-200" />
+      <div className="absolute top-0 right-0 h-8 w-px bg-white/20 group-hover:bg-white/40 transition-colors duration-200" />
 
-      <div className="flex items-start justify-between mb-3">
-        <div>
-          <div className="text-xs text-terminal-muted tracking-widest mb-1">
-            [{String(index + 1).padStart(2, "0")}] {project.type}
-          </div>
-          <h3 className="text-sm text-terminal-bright tracking-[0.15em] uppercase font-mono group-hover:text-terminal-glow group-hover:text-glow transition-all duration-200">
-            {project.name}
-          </h3>
-        </div>
-        <span
-          className={`text-xs tracking-widest ${statusColors[project.status]}`}
-        >
-          {project.status}
+      <div className="panel-header flex items-center justify-between">
+        <span className="label">
+          [{String(index + 1).padStart(2, "0")}] {project.type}
         </span>
       </div>
 
-      <p className="text-xs text-terminal-muted leading-relaxed mb-4">
-        {project.description}
-      </p>
-
-      <div className="flex flex-wrap gap-2">
-        {project.tags.map((tag) => (
-          <span
-            key={tag}
-            className="text-xs text-terminal-muted border border-terminal-dim px-2 py-0.5 tracking-wider"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-
-      <div className="mt-4 text-xs text-terminal-glow tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-        ACCESS →
+      <div className="p-4">
+        <h3 className="text-sm text-mono-bright tracking-[0.12em] uppercase mb-2 group-hover:text-white transition-colors">
+          {project.name}
+        </h3>
+        <p className="text-xs text-mono-muted leading-relaxed mb-4">
+          {project.description}
+        </p>
+        <span className="text-xs text-mono-dim group-hover:text-mono-muted tracking-widest transition-colors">
+          ACCESS →
+        </span>
       </div>
     </motion.a>
   );
@@ -94,31 +72,22 @@ export const PROJECTS: Project[] = [
   {
     id: "stamped",
     name: "STAMPED",
-    description:
-      "Web platform at usestamped.us — a live production application.",
+    description: "Live production web platform.",
     url: "https://usestamped.us",
     type: "LIVE",
-    tags: ["PRODUCTION", "WEB"],
-    status: "ACTIVE",
   },
   {
     id: "merchant",
     name: "MERCHANT",
-    description:
-      "Open-source project. Explore the repository for implementation details.",
+    description: "Open-source repository.",
     url: "https://github.com/nethum529/Merchant",
     type: "REPO",
-    tags: ["OPEN SOURCE"],
-    status: "ACTIVE",
   },
   {
     id: "vero",
     name: "VERO",
-    description:
-      "Open-source project. Explore the repository for implementation details.",
+    description: "Open-source repository.",
     url: "https://github.com/nethum529/Vero",
     type: "REPO",
-    tags: ["OPEN SOURCE"],
-    status: "ACTIVE",
   },
 ];

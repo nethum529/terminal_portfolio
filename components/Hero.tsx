@@ -1,150 +1,116 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { StatusDot } from "./ui/StatusDot";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center grid-bg overflow-hidden pt-16">
-      {/* Corner decorations */}
-      <div className="absolute top-20 left-6 w-8 h-8 border-l border-t border-terminal-glow opacity-40" />
-      <div className="absolute top-20 right-6 w-8 h-8 border-r border-t border-terminal-glow opacity-40" />
-      <div className="absolute bottom-6 left-6 w-8 h-8 border-l border-b border-terminal-glow opacity-40" />
-      <div className="absolute bottom-6 right-6 w-8 h-8 border-r border-b border-terminal-glow opacity-40" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-12">
+      {/* Corner marks */}
+      <div className="absolute top-16 left-5 w-6 h-6 border-l border-t border-white/20" />
+      <div className="absolute top-16 right-5 w-6 h-6 border-r border-t border-white/20" />
+      <div className="absolute bottom-5 left-5 w-6 h-6 border-l border-b border-white/20" />
+      <div className="absolute bottom-5 right-5 w-6 h-6 border-r border-b border-white/20" />
 
-      <div className="max-w-6xl mx-auto px-6 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          {/* Left: Main identity */}
-          <div>
-            <motion.div
-              className="text-xs text-terminal-muted tracking-[0.4em] uppercase mb-4"
+      <div className="max-w-5xl mx-auto px-5 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-center">
+
+          {/* Left — identity */}
+          <div className="lg:col-span-3">
+            <motion.p
+              className="label mb-3"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
             >
-              SUBJECT // DEVELOPER PROFILE
-            </motion.div>
+              DEVELOPER // PROFILE
+            </motion.p>
 
             <motion.h1
-              className="text-4xl lg:text-6xl font-mono text-terminal-bright text-glow-accent mb-2 tracking-tight"
-              initial={{ opacity: 0, y: 20 }}
+              className="text-5xl lg:text-7xl font-mono text-mono-bright tracking-tight leading-none mb-1"
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.25 }}
             >
               NETHUM
             </motion.h1>
+
             <motion.h2
-              className="text-xl lg:text-2xl font-mono text-terminal-glow text-glow mb-6 tracking-[0.15em]"
-              initial={{ opacity: 0, y: 20 }}
+              className="text-2xl lg:text-3xl font-mono text-mono-muted tracking-[0.1em] mb-6"
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.35 }}
             >
               WEERASINGHE
             </motion.h2>
 
+            <motion.p
+              className="text-sm text-mono-muted leading-relaxed max-w-sm border-l border-white/15 pl-3"
+              initial={{ opacity: 0, x: -8 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              CS researcher at Sketch Recognition Labs, Texas A&M University.
+            </motion.p>
+
             <motion.div
-              className="flex items-center gap-3 mb-8"
+              className="flex gap-3 mt-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.55 }}
+              transition={{ duration: 0.5, delay: 0.65 }}
             >
-              <StatusDot status="active" />
-              <span className="text-xs text-terminal-muted tracking-widest uppercase">
-                SYSTEM ONLINE
-              </span>
-              <span className="text-terminal-dim mx-2">|</span>
-              <span className="text-xs text-terminal-muted tracking-widest">
-                CS @ TEXAS A&M
-              </span>
-            </motion.div>
-
-            <motion.p
-              className="text-sm text-terminal-text leading-relaxed max-w-md border-l-2 border-terminal-dim pl-4"
-              initial={{ opacity: 0, x: -12 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.65 }}
-            >
-              Computer Science researcher at Sketch Recognition Labs, Texas A&M
-              University. Building systems at the intersection of HCI and
-              machine intelligence.
-            </motion.p>
-          </div>
-
-          {/* Right: System readout */}
-          <motion.div
-            className="panel-border bg-terminal-panel p-6 font-mono"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-          >
-            <div className="text-xs text-terminal-glow tracking-widest mb-4 border-b border-terminal-border pb-2">
-              SYSTEM READOUT
-            </div>
-            <div className="space-y-3">
-              {[
-                { label: "DESIGNATION", value: "NETHUM WEERASINGHE" },
-                { label: "INSTITUTION", value: "TEXAS A&M UNIVERSITY" },
-                { label: "FIELD", value: "COMPUTER SCIENCE" },
-                { label: "CURRENT OP", value: "SKETCH RECOGNITION LAB" },
-                { label: "PRIMARY LANG", value: "C++" },
-                { label: "STATUS", value: "ACTIVE" },
-              ].map(({ label, value }, i) => (
-                <motion.div
-                  key={label}
-                  className="flex justify-between items-center text-xs py-1 border-b border-terminal-dim/30"
-                  initial={{ opacity: 0, x: 8 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: 0.7 + i * 0.08 }}
-                >
-                  <span className="text-terminal-muted tracking-wider">
-                    {label}
-                  </span>
-                  <span
-                    className={`text-terminal-bright ${label === "STATUS" ? "text-terminal-success" : ""}`}
-                  >
-                    {value}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="mt-6 flex gap-4">
               <a
                 href="https://github.com/nethum529"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs text-terminal-muted hover:text-terminal-glow tracking-widest border border-terminal-border hover:border-terminal-glow px-3 py-1.5 transition-all duration-200"
+                className="text-xs text-mono-muted hover:text-mono-text tracking-widest border border-white/15 hover:border-white/35 px-3 py-1.5 transition-all duration-150"
               >
-                [GITHUB]
+                GITHUB
               </a>
               <a
                 href="https://linkedin.com/in/nethum"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs text-terminal-muted hover:text-terminal-glow tracking-widest border border-terminal-border hover:border-terminal-glow px-3 py-1.5 transition-all duration-200"
+                className="text-xs text-mono-muted hover:text-mono-text tracking-widest border border-white/15 hover:border-white/35 px-3 py-1.5 transition-all duration-150"
               >
-                [LINKEDIN]
+                LINKEDIN
               </a>
+            </motion.div>
+          </div>
+
+          {/* Right — dossier panel */}
+          <motion.div
+            className="lg:col-span-2 panel"
+            initial={{ opacity: 0, x: 16 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            style={{ perspective: 800 }}
+            whileHover={{
+              boxShadow: "0 12px 48px rgba(0,0,0,1), 0 0 0 1px rgba(255,255,255,0.14)",
+              y: -3,
+              transition: { duration: 0.2 },
+            }}
+          >
+            <div className="panel-header flex items-center justify-between">
+              <span className="label-bright">IDENT RECORD</span>
+              <span className="label">SYS-001</span>
+            </div>
+            <div className="p-4 space-y-2.5">
+              {[
+                { k: "NAME",        v: "NETHUM WEERASINGHE" },
+                { k: "INSTITUTION", v: "TEXAS A&M UNIV." },
+                { k: "FIELD",       v: "COMPUTER SCIENCE" },
+                { k: "CURRENT OP",  v: "SKETCH RECOG. LAB" },
+                { k: "ELIGIBILITY", v: "U.S. — NO RESTRICT." },
+              ].map(({ k, v }) => (
+                <div key={k} className="flex justify-between items-baseline text-xs border-b border-white/5 pb-2">
+                  <span className="label w-28 shrink-0">{k}</span>
+                  <span className="text-mono-text text-right">{v}</span>
+                </div>
+              ))}
             </div>
           </motion.div>
-        </div>
 
-        {/* Bottom scroll hint */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
-        >
-          <span className="text-xs text-terminal-muted tracking-widest">
-            SCROLL TO EXPLORE
-          </span>
-          <motion.div
-            className="w-px h-8 bg-terminal-glow opacity-50"
-            animate={{ scaleY: [0, 1, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

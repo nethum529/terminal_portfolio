@@ -2,83 +2,58 @@
 
 import { motion } from "framer-motion";
 import { Panel } from "./ui/Panel";
+import { SectionHeader } from "./IdentificationPanel";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="max-w-6xl mx-auto px-6 py-16">
-      <motion.div
-        className="text-xs text-terminal-muted tracking-[0.4em] uppercase mb-8 flex items-center gap-4"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-      >
-        <span>// CONTACT INTERFACE</span>
-        <div className="flex-1 h-px bg-terminal-border" />
-        <span>SEC.04</span>
-      </motion.div>
+    <section id="contact" className="max-w-5xl mx-auto px-5 py-10">
+      <SectionHeader label="// CONTACT INTERFACE" index="04" />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <Panel title="CHANNELS" tag="OPEN" delay={0.1}>
-          <div className="space-y-4">
-            <a
-              href="https://github.com/nethum529"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between text-xs group border-b border-terminal-dim/30 pb-3"
-            >
-              <span className="text-terminal-muted tracking-wider">GITHUB</span>
-              <span className="text-terminal-text group-hover:text-terminal-glow transition-colors tracking-wider">
-                github.com/nethum529 →
-              </span>
-            </a>
-            <a
-              href="https://linkedin.com/in/nethum"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between text-xs group border-b border-terminal-dim/30 pb-3"
-            >
-              <span className="text-terminal-muted tracking-wider">
-                LINKEDIN
-              </span>
-              <span className="text-terminal-text group-hover:text-terminal-glow transition-colors tracking-wider">
-                linkedin.com/in/nethum →
-              </span>
-            </a>
-            <div className="flex items-center justify-between text-xs pb-1">
-              <span className="text-terminal-muted tracking-wider">
-                INSTITUTION
-              </span>
-              <span className="text-terminal-text tracking-wider">
-                TEXAS A&M UNIVERSITY
-              </span>
-            </div>
+        <Panel title="CHANNELS" delay={0.1}>
+          <div className="space-y-3 text-xs">
+            {[
+              { label: "GITHUB",   href: "https://github.com/nethum529",   display: "github.com/nethum529" },
+              { label: "LINKEDIN", href: "https://linkedin.com/in/nethum", display: "linkedin.com/in/nethum" },
+            ].map(({ label, href, display }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between border-b border-white/5 pb-3 group"
+              >
+                <span className="label">{label}</span>
+                <span className="text-mono-muted group-hover:text-mono-text tracking-wide transition-colors">
+                  {display} →
+                </span>
+              </a>
+            ))}
           </div>
         </Panel>
 
-        <Panel title="TRANSMISSION" tag="READY" delay={0.2}>
-          <div className="space-y-3">
-            <div className="text-xs text-terminal-muted leading-relaxed">
-              <span className="text-terminal-glow">{">"}</span> Open to
-              collaboration, research opportunities, and engineering roles.
+        <Panel title="TRANSMISSION" delay={0.2}>
+          <div className="space-y-2.5 text-xs text-mono-muted leading-relaxed">
+            <div className="flex gap-2">
+              <span className="text-mono-dim shrink-0">›</span>
+              <span>Open to research collaboration and engineering roles.</span>
             </div>
-            <div className="text-xs text-terminal-muted leading-relaxed">
-              <span className="text-terminal-glow">{">"}</span> Reach out via
-              LinkedIn or GitHub for inquiries.
+            <div className="flex gap-2">
+              <span className="text-mono-dim shrink-0">›</span>
+              <span>Reach out via GitHub or LinkedIn.</span>
             </div>
-            <div className="mt-6 border border-terminal-border p-3 bg-terminal-bg">
-              <div className="text-xs text-terminal-muted tracking-widest mb-1">
-                SYSTEM MSG
-              </div>
-              <div className="text-xs text-terminal-text tracking-wider">
-                READY TO RECEIVE TRANSMISSIONS
+            <div className="mt-4 border border-white/8 p-3 bg-black/40">
+              <span className="label block mb-1">SYSTEM MSG</span>
+              <span className="text-mono-muted tracking-wider">
+                READY TO RECEIVE
                 <motion.span
-                  className="inline-block ml-1 text-terminal-glow"
+                  className="inline-block ml-0.5 text-mono-text"
                   animate={{ opacity: [1, 0, 1] }}
-                  transition={{ duration: 1.2, repeat: Infinity }}
+                  transition={{ duration: 1.1, repeat: Infinity }}
                 >
                   _
                 </motion.span>
-              </div>
+              </span>
             </div>
           </div>
         </Panel>

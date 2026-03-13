@@ -12,5 +12,9 @@ Stamped: usestamped.us
 Merchant: https://github.com/nethum529/Merchant
 Vero: https://github.com/nethum529/Vero
 
-
+## Skills
+● Languages: Python, C++, Swift, TypeScript, JavaScript, Java, SQL
+● Frameworks & Libraries: FastAPI, Next.js, Pandas, Numpy, PyTorch
+● Databases & Tools: Git, Supabase, Google Colab, Jupyter Notebooks
+● Work Eligibility: Eligible to work in the U.S. with no restrictions
 

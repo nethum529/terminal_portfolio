@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Share_Tech_Mono } from "next/font/google";
+import { PixelCursor } from "@/components/ui/PixelCursor";
 import "./globals.css";
 
 const shareTechMono = Share_Tech_Mono({
@@ -19,7 +20,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className={shareTechMono.variable}>
-        <div className="scanline" aria-hidden="true" />
+        {/* Overlays */}
+        <div className="vignette" aria-hidden="true" />
+        <div className="grain" aria-hidden="true" />
+        <div className="scanlines" aria-hidden="true" />
+        {/* Custom cursor */}
+        <PixelCursor />
         {children}
       </body>
     </html>
