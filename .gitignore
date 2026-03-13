@@ -1,40 +1,96 @@
-# Dependencies
-node_modules/
-/.pnp
-.pnp.js
+# ============================================================
+# CLAUDE / AI TOOLING
+# ============================================================
+.claude/
+.claude.json
+*.claude
+CLAUDE.md
+base_inspiration.jpg
+info.md
 
-# Next.js build output
+# ============================================================
+# DEPENDENCIES
+# ============================================================
+node_modules/
+.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# ============================================================
+# NEXT.JS
+# ============================================================
 /.next/
 /out/
-
-# Production build
 /build
+next-env.d.ts
 
-# Environment files - NEVER commit these
+# ============================================================
+# ENVIRONMENT & SECRETS — NEVER COMMIT
+# ============================================================
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
+!.env.example
 
-# Debug logs
+# ============================================================
+# PACKAGE MANAGERS
+# ============================================================
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
+pnpm-lock.yaml
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
 
-# OS files
+# ============================================================
+# TYPESCRIPT
+# ============================================================
+*.tsbuildinfo
+
+# ============================================================
+# TESTING
+# ============================================================
+/coverage
+/playwright-report
+/test-results
+/blob-report
+playwright/.cache
+
+# ============================================================
+# OS FILES
+# ============================================================
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+desktop.ini
 
-# Editor directories and files
+# ============================================================
+# EDITORS
+# ============================================================
 .vscode/
+!.vscode/extensions.json
 .idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+*.swp
+*.swo
 
-# TypeScript
-*.tsbuildinfo
-next-env.d.ts
+# ============================================================
+# MISC
+# ============================================================
+*.log
+*.pid
+*.seed
+*.pid.lock
+.cache/
+.temp/
+.tmp/
+dist/
