@@ -20,10 +20,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className={ibmPlexMono.variable}>
-        {/* Background stack: stars → grain → vignette */}
+        {/* Background stack: film → dark overlay → stars → vignette → scanlines */}
+        <div className="film-bg"      aria-hidden="true" />
+        <div className="film-overlay" aria-hidden="true" />
         <StarField />
-        <div className="grain"    aria-hidden="true" />
-        <div className="vignette" aria-hidden="true" />
+        <div className="vignette"  aria-hidden="true" />
         <div className="scanlines" aria-hidden="true" />
         {children}
       </body>
