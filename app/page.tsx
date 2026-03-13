@@ -8,14 +8,40 @@ import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-bg" style={{ zIndex: 1 }}>
+    <>
       <Navbar />
-      <Hero />
-      <IdentificationPanel />
-      <ProjectsSection />
-      <SkillsPanel />
-      <ContactSection />
+      {/* All panels stacked densely in a single column */}
+      <main
+        className="relative max-w-3xl mx-auto px-3 pt-12 pb-4 space-y-2"
+        style={{ zIndex: 10 }}
+      >
+        {/* Hero terminal — full width */}
+        <section id="profile">
+          <Hero />
+        </section>
+
+        {/* Identification */}
+        <section id="identity">
+          <IdentificationPanel />
+        </section>
+
+        {/* Projects */}
+        <section id="projects">
+          <ProjectsSection />
+        </section>
+
+        {/* Skills */}
+        <section id="skills">
+          <SkillsPanel />
+        </section>
+
+        {/* Contact */}
+        <section id="contact">
+          <ContactSection />
+        </section>
+      </main>
+
       <Footer />
-    </main>
+    </>
   );
 }
