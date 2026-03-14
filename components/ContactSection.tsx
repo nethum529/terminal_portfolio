@@ -3,53 +3,82 @@
 import { motion } from "framer-motion";
 import { TerminalWindow } from "./ui/TerminalWindow";
 
-const LINKS = [
-  { label: "GITHUB",   href: "https://github.com/nethum529",          display: "github.com/nethum529" },
-  { label: "LINKEDIN", href: "https://linkedin.com/in/nethum",         display: "linkedin.com/in/nethum" },
-  { label: "RESUME",   href: "/Don_Weerasinghe.pdf",                   display: "view resume ↗" },
+const CONTACTS = [
+  {
+    label: "GITHUB",
+    display: "github.com/nethum529",
+    href: "https://github.com/nethum529",
+    sub: "Source code & projects",
+  },
+  {
+    label: "LINKEDIN",
+    display: "linkedin.com/in/nethum",
+    href: "https://linkedin.com/in/nethum",
+    sub: "Professional profile",
+  },
+  {
+    label: "RESUME",
+    display: "View / Download PDF",
+    href: "/Don_Weerasinghe.pdf",
+    sub: "B.S. Computer Science — Texas A&M",
+  },
 ];
 
 export function ContactSection() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-      <TerminalWindow title="CHANNELS" delay={0.05} glisten float floatDuration={4.5} floatDelay={0.3}>
-        <div className="space-y-2 text-xs">
-          {LINKS.map(({ label, href, display }) => (
-            <a key={label} href={href}
+    <TerminalWindow title="CONTACT ME" glow delay={0.05}>
+      <div className="flex flex-col gap-6 py-2">
+        {/* Large link cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {CONTACTS.map(({ label, display, href, sub }) => (
+            <motion.a
+              key={label}
+              href={href}
               target={href.startsWith("http") ? "_blank" : "_self"}
               rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="flex items-center justify-between pb-1.5"
-              style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
+              className="flex flex-col gap-3 p-6 transition-all duration-200"
+              style={{
+                border: "1px solid rgba(200,185,255,0.30)",
+                background: "rgba(200,185,255,0.04)",
+              }}
+              whileHover={{
+                scale: 1.02,
+                transition: { duration: 0.15 },
+              }}
+              onMouseEnter={e => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.borderColor = "rgba(200,185,255,0.70)";
+                el.style.background = "rgba(200,185,255,0.10)";
+                el.style.boxShadow = "0 0 20px rgba(175,155,255,0.18)";
+              }}
+              onMouseLeave={e => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.borderColor = "rgba(200,185,255,0.30)";
+                el.style.background = "rgba(200,185,255,0.04)";
+                el.style.boxShadow = "";
+              }}
             >
-              <span className="mono-label">{label}</span>
-              <span className="text-xs transition-colors duration-150" style={{ color: "#555" }}
-                onMouseEnter={e => ((e.target as HTMLElement).style.color = "#D4D4D4")}
-                onMouseLeave={e => ((e.target as HTMLElement).style.color = "#555")}
-              >{display}</span>
-            </a>
+              <span className="mono-label" style={{ color: "#ffffff" }}>{label}</span>
+              <span className="text-xl font-medium" style={{ color: "#ffffff", letterSpacing: "0.03em" }}>{display}</span>
+              <span className="text-base" style={{ color: "#ffffff" }}>{sub}</span>
+            </motion.a>
           ))}
         </div>
-      </TerminalWindow>
 
-      <TerminalWindow title="CONTACT ME" delay={0.1} float floatDuration={3.9} floatDelay={1.1}>
-        <div className="space-y-1.5 text-xs" style={{ color: "#666" }}>
-          {["Open to research collaboration and engineering roles.", "Reach out via GitHub or LinkedIn."].map((line, i) => (
-            <div key={i} className="flex gap-2 leading-5">
-              <span style={{ color: "#333", flexShrink: 0 }}>›</span>
-              <span>{line}</span>
-            </div>
-          ))}
-          <div className="mt-2.5 p-2.5" style={{ border: "1px solid rgba(255,255,255,0.08)", background: "rgba(0,0,0,0.35)" }}>
-            <p className="mono-label mb-1">SYSTEM MSG</p>
-            <p style={{ color: "#585858", fontSize: "0.7rem", letterSpacing: "0.08em" }}>
-              READY TO RECEIVE
-              <motion.span className="cursor-blink ml-0.5" style={{ color: "#888" }}
-                animate={{ opacity: [1, 0, 1] }} transition={{ duration: 1.1, repeat: Infinity }}
-              >_</motion.span>
-            </p>
-          </div>
+        {/* System status */}
+        <div className="flex items-center gap-3 pt-1" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+          <span className="mono-label-dim">SYSTEM MSG</span>
+          <span style={{ color: "#ffffff", fontSize: "1.1rem", letterSpacing: "0.08em" }}>
+            READY TO RECEIVE
+            <motion.span
+              className="ml-0.5"
+              style={{ color: "#ffffff" }}
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 1.1, repeat: Infinity }}
+            >_</motion.span>
+          </span>
         </div>
-      </TerminalWindow>
-    </div>
+      </div>
+    </TerminalWindow>
   );
 }

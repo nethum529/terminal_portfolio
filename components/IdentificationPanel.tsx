@@ -3,17 +3,11 @@
 import { motion } from "framer-motion";
 import { TerminalWindow } from "./ui/TerminalWindow";
 
-const LINKS = [
-  { label: "GITHUB",   href: "https://github.com/nethum529",  display: "nethum529" },
-  { label: "LINKEDIN", href: "https://linkedin.com/in/nethum", display: "in/nethum" },
-  { label: "RESUME",   href: "/Don_Weerasinghe.pdf",           display: "view ↗" },
-];
-
 export function IdentificationPanel() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-      <TerminalWindow title="BACKGROUND" className="md:col-span-2" delay={0.05} glisten float floatDuration={4.8} floatDelay={0.2}>
-        <div className="space-y-1.5 text-xs" style={{ color: "#888" }}>
+    <div className="flex flex-col gap-4">
+      <TerminalWindow title="ABOUT ME" delay={0.05} glisten>
+        <div className="space-y-3 text-lg" style={{ color: "#ffffff" }}>
           {[
             "Student researcher at Texas A&M University.",
             "Operating at Sketch Recognition Labs — HCI & gesture research.",
@@ -23,29 +17,48 @@ export function IdentificationPanel() {
               initial={{ opacity: 0, x: -4 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.22, delay: 0.05 + i * 0.07 }}
             >
-              <span style={{ color: "#383838", userSelect: "none", flexShrink: 0 }}>›</span>
+              <span style={{ color: "#ffffff", userSelect: "none", flexShrink: 0 }}>›</span>
               <span>{line}</span>
             </motion.div>
           ))}
         </div>
       </TerminalWindow>
 
-      <TerminalWindow title="LINKS" delay={0.1} float floatDuration={4.2} floatDelay={0.8}>
-        <div className="space-y-2 text-xs">
-          {LINKS.map(({ label, href, display }) => (
-            <a key={label} href={href}
-              target={href.startsWith("http") ? "_blank" : "_self"}
-              rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="flex items-center justify-between pb-1.5 group"
-              style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
-            >
-              <span className="mono-label">{label}</span>
-              <span className="text-xs transition-colors duration-150" style={{ color: "#555" }}
-                onMouseEnter={e => ((e.target as HTMLElement).style.color = "#D4D4D4")}
-                onMouseLeave={e => ((e.target as HTMLElement).style.color = "#555")}
-              >{display} →</span>
-            </a>
-          ))}
+      {/* Resume — full width, prominent */}
+      <TerminalWindow title="RESUME // CV" delay={0.15}>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <p className="text-lg" style={{ color: "#ffffff", letterSpacing: "0.05em" }}>
+              Nethum Weerasinghe — Software Engineer
+            </p>
+            <p className="mono-label mt-1.5">B.S. Computer Science · Texas A&amp;M University · Sketch Recognition Labs</p>
+          </div>
+          <a
+            href="/Don_Weerasinghe.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 px-8 py-4 text-lg font-medium tracking-widest transition-all duration-200"
+            style={{
+              border: "1px solid rgba(200,185,255,0.55)",
+              color: "#ffffff",
+              background: "rgba(200,185,255,0.08)",
+              letterSpacing: "0.18em",
+            }}
+            onMouseEnter={e => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.background = "rgba(200,185,255,0.20)";
+              el.style.borderColor = "rgba(200,185,255,0.85)";
+              el.style.boxShadow = "0 0 18px rgba(175,155,255,0.30)";
+            }}
+            onMouseLeave={e => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.background = "rgba(200,185,255,0.08)";
+              el.style.borderColor = "rgba(200,185,255,0.55)";
+              el.style.boxShadow = "";
+            }}
+          >
+            GET RESUME ↗
+          </a>
         </div>
       </TerminalWindow>
     </div>

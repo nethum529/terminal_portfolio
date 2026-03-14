@@ -27,8 +27,8 @@ export function Navbar() {
         className="fixed top-0 left-0 right-0 z-50"
         style={{ borderBottom: "1px solid rgba(255,255,255,0.08)", background: "rgba(0,0,0,0.92)" }}
       >
-        <div className="max-w-3xl mx-auto px-3 py-2 flex items-center justify-between">
-          <span className="t-title" style={{ letterSpacing: "0.25em" }}>NETHUM.SYS</span>
+        <div className="max-w-[1440px] mx-auto px-4 py-2 flex items-center justify-between">
+          <span className="t-title phosphor-glow" style={{ letterSpacing: "0.25em" }}>NETHUM.SYS</span>
 
           <nav aria-label="Main navigation" className="hidden md:flex items-center gap-6">
             {NAV.map(({ label, href }) => (
