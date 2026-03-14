@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* Background stack: ethereal shadow → dark overlay → atmo cast → stars → grain → vignette → scanlines */}
         <div className="film-bg" aria-hidden="true">
           <EtheralShadow
-            color="rgba(160, 130, 255, 0.85)"
+            color="rgba(118, 111, 125, 1)"
             animation={{ scale: 65, speed: 45 }}
             noise={{ opacity: 0.4, scale: 1.2 }}
             sizing="fill"
@@ -35,10 +35,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <div className="film-overlay" aria-hidden="true" />
         <div className="atmo-overlay" aria-hidden="true" />
         <StarField />
-        <FilmGrain />
         <div className="vignette" aria-hidden="true" />
         <div className="scanlines" aria-hidden="true" />
         {children}
+        <FilmGrain />
       </body>
     </html>
   );
