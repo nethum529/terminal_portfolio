@@ -1,43 +1,54 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { ContactSection } from "@/components/ContactSection";
 import { IdentificationPanel } from "@/components/IdentificationPanel";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { SkillsPanel } from "@/components/SkillsPanel";
-import { ContactSection } from "@/components/ContactSection";
+import { HandprintTerminal } from "@/components/HandprintTerminal";
+import { EyeTerminal } from "@/components/EyeTerminal";
+import { Fingerprint } from "@/components/Fingerprint";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      {/* All panels stacked densely in a single column */}
       <main
-        className="relative max-w-3xl mx-auto px-3 pt-12 pb-4 space-y-2"
+        className="relative max-w-[1440px] mx-auto px-6 pt-16 pb-10 space-y-6"
         style={{ zIndex: 10 }}
       >
-        {/* Hero terminal — full width */}
-        <section id="profile">
+        <section id="profile" className="scroll-mt-16">
           <Hero />
         </section>
 
-        {/* Identification */}
+        <section id="contact" className="scroll-mt-16">
+          <ContactSection />
+        </section>
+
         <section id="identity">
           <IdentificationPanel />
         </section>
 
-        {/* Projects */}
-        <section id="projects">
+        <section id="projects" className="scroll-mt-16">
           <ProjectsSection />
         </section>
 
-        {/* Skills */}
-        <section id="skills">
-          <SkillsPanel />
+        <section id="circuit">
+          <div className="flex flex-col lg:flex-row gap-6 items-stretch">
+            <div className="lg:w-56 shrink-0">
+              <HandprintTerminal />
+            </div>
+            <div className="lg:w-56 shrink-0">
+              <EyeTerminal />
+            </div>
+            <div className="lg:w-56 shrink-0">
+              <Fingerprint />
+            </div>
+          </div>
         </section>
 
-        {/* Contact */}
-        <section id="contact">
-          <ContactSection />
+        <section id="skills" className="scroll-mt-16">
+          <SkillsPanel />
         </section>
       </main>
 
