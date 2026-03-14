@@ -27,8 +27,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <div className="film-bg" aria-hidden="true">
           <EtheralShadow
             color="rgba(118, 111, 125, 1)"
-            animation={{ scale: 65, speed: 45 }}
-            noise={{ opacity: 0.4, scale: 1.2 }}
+            noise={{ opacity: 0.3, scale: 1.2 }}
             sizing="fill"
             style={{ width: '100%', height: '100%' }}
           />

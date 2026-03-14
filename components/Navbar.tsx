@@ -10,6 +10,14 @@ const NAV = [
   { label: "CONTACT",  href: "#contact" },
 ];
 
+function scrollTo(href: string) {
+  const id = href.replace("#", "");
+  const el = document.getElementById(id);
+  if (!el) return;
+  // Use native scrollIntoView — Lenis intercepts this and applies its smooth easing.
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 export function Navbar() {
   const [open, setOpen] = useState(false);
 
@@ -35,14 +43,13 @@ export function Navbar() {
               <a
                 key={href}
                 href={href}
-                className="mono-label transition-colors duration-150 hover:text-gray-400"
+                className="mono-label"
+                onClick={e => { e.preventDefault(); scrollTo(href); }}
               >
                 {label}
               </a>
             ))}
           </nav>
-
-          <span className="hidden md:block mono-label-dim">v2.0</span>
 
           <button
             className="md:hidden mono-label border px-2 py-0.5 transition-colors duration-150"
@@ -71,8 +78,8 @@ export function Navbar() {
                   <a
                     key={href}
                     href={href}
-                    onClick={() => setOpen(false)}
-                    className="mono-label py-1 transition-colors duration-150 hover:text-gray-400"
+                    onClick={e => { e.preventDefault(); setOpen(false); scrollTo(href); }}
+                    className="mono-label py-1"
                   >
                     › {label}
                   </a>

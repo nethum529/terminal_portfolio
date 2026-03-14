@@ -16,7 +16,7 @@ const BOOT_LINES = [
 const IDENT = [
   { k: "NAME",      v: "NETHUM WEERASINGHE" },
   { k: "EDUCATION", v: "TEXAS A&M" },
-  { k: "OPERATION", v: "SKETCH RECOGNITION LAB" },
+  { k: "CURRENTLY AT", v: "SKETCH RECOGNITION LAB" },
   { k: "EMAIL",     v: "NETHUMWEERASINGHE.NW@GMAIL.COM" },
 ];
 
@@ -80,7 +80,7 @@ export function Hero() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.22, delay: i * 0.07 }}
                     >
-                      <span className="mono-label w-24 shrink-0">{k}</span>
+                      <span className="mono-label w-36 shrink-0">{k}</span>
                       <span className="text-base" style={{ color: "#ffffff" }}>{v}</span>
                     </motion.div>
                   ))}

@@ -76,19 +76,5 @@ export function TerminalWindow({
     </motion.div>
   );
 
-  if (!float) return panel;
-
-  return (
-    <motion.div
-      animate={{ y: [0, -5, 0] }}
-      transition={{
-        duration: floatDuration,
-        repeat: Infinity,
-        ease: "easeInOut",
-        delay: floatDelay,
-      }}
-    >
-      {panel}
-    </motion.div>
-  );
+  return panel;
 }

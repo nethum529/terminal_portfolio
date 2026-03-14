@@ -5,6 +5,7 @@ import { IdentificationPanel } from "@/components/IdentificationPanel";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { SkillsPanel } from "@/components/SkillsPanel";
 import { Footer } from "@/components/Footer";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export default function Home() {
   return (
@@ -15,27 +16,39 @@ export default function Home() {
         style={{ zIndex: 10 }}
       >
         <section id="profile" className="scroll-mt-16">
-          <Hero />
+          <ScrollReveal>
+            <Hero />
+          </ScrollReveal>
         </section>
 
         <section id="contact" className="scroll-mt-16">
-          <ContactSection />
+          <ScrollReveal delay={0.05}>
+            <ContactSection />
+          </ScrollReveal>
         </section>
 
         <section id="identity">
-          <IdentificationPanel />
+          <ScrollReveal delay={0.05}>
+            <IdentificationPanel />
+          </ScrollReveal>
         </section>
 
         <section id="projects" className="scroll-mt-16">
-          <ProjectsSection />
+          <ScrollReveal delay={0.05}>
+            <ProjectsSection />
+          </ScrollReveal>
         </section>
 
-<section id="skills" className="scroll-mt-16">
-          <SkillsPanel />
+        <section id="skills" className="scroll-mt-16">
+          <ScrollReveal delay={0.05}>
+            <SkillsPanel />
+          </ScrollReveal>
         </section>
       </main>
 
-      <Footer />
+      <ScrollReveal delay={0.05}>
+        <Footer />
+      </ScrollReveal>
     </>
   );
 }

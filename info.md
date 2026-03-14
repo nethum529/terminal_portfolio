@@ -9,9 +9,10 @@ Linkedin: linkedin.com/in/nethum
 
 ## Projects
 Stamped: usestamped.us
+Stamped Repo: https://github.com/nethum529/stamped
 Merchant: https://github.com/nethum529/Merchant
 Vero: https://github.com/nethum529/Vero
-
+Vero site: https://tryvero.netlify.app/
 ## Project Descriptions
 Stamped: A client/vendor onboarding platform for financial institutions. Utilizes intuitive design and ai-powered risk assesement to optimize workflow of employees. 
 Merchant: A credit card optimization platform. Helps users maximize their credit potential by informing the best cards to use at a certain location with a simple notification

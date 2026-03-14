@@ -37,24 +37,12 @@ export function IdentificationPanel() {
             href="/Don_Weerasinghe.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 px-8 py-4 text-lg font-medium tracking-widest transition-all duration-200"
+            className="shrink-0 px-8 py-4 text-lg font-medium tracking-widest"
             style={{
-              border: "1px solid rgba(200,185,255,0.55)",
+              border: "1px solid rgba(255,255,255,0.40)",
               color: "#ffffff",
-              background: "rgba(200,185,255,0.08)",
+              background: "rgba(255,255,255,0.05)",
               letterSpacing: "0.18em",
-            }}
-            onMouseEnter={e => {
-              const el = e.currentTarget as HTMLElement;
-              el.style.background = "rgba(200,185,255,0.20)";
-              el.style.borderColor = "rgba(200,185,255,0.85)";
-              el.style.boxShadow = "0 0 18px rgba(175,155,255,0.30)";
-            }}
-            onMouseLeave={e => {
-              const el = e.currentTarget as HTMLElement;
-              el.style.background = "rgba(200,185,255,0.08)";
-              el.style.borderColor = "rgba(200,185,255,0.55)";
-              el.style.boxShadow = "";
             }}
           >
             GET RESUME ↗

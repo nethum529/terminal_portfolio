@@ -56,20 +56,20 @@ export function TypewriterText({
   return (
     <div className="space-y-0.5">
       {revealed.map((text, i) => (
-        <div key={i} className="flex gap-2 text-xs leading-5">
-          <span style={{ color: "#3a3a3a", userSelect: "none" }}>›</span>
-          <span style={{ color: "#8a8a8a" }}>
+        <div key={i} className="flex gap-3 text-lg leading-8">
+          <span style={{ color: "#ffffff", userSelect: "none" }}>›</span>
+          <span style={{ color: "#ffffff" }}>
             {text}
             {i === lineIdx && !done && showCursor && (
-              <span className="cursor-blink" style={{ color: "#C8C8C8" }}>█</span>
+              <span className="cursor-blink" style={{ color: "#ffffff" }}>█</span>
             )}
           </span>
         </div>
       ))}
       {done && showCursor && (
-        <div className="flex gap-2 text-xs leading-5">
-          <span style={{ color: "#3a3a3a", userSelect: "none" }}>›</span>
-          <span className="cursor-blink" style={{ color: "#555" }}>█</span>
+        <div className="flex gap-3 text-lg leading-8">
+          <span style={{ color: "#ffffff", userSelect: "none" }}>›</span>
+          <span className="cursor-blink" style={{ color: "#ffffff" }}>█</span>
         </div>
       )}
     </div>

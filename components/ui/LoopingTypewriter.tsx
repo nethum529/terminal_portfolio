@@ -56,8 +56,7 @@ export function LoopingTypewriter({
 
   return (
     <span>
-      <span style={{ color: "#848484" }}>{text.slice(0, chars)}</span>
-      <span className="cursor-blink" style={{ color: "#505050", marginLeft: "1px" }}>█</span>
+      <span style={{ color: "#ffffff" }}>{text.slice(0, chars)}</span>
     </span>
   );
 }
