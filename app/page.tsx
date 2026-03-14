@@ -4,9 +4,6 @@ import { ContactSection } from "@/components/ContactSection";
 import { IdentificationPanel } from "@/components/IdentificationPanel";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { SkillsPanel } from "@/components/SkillsPanel";
-import { HandprintTerminal } from "@/components/HandprintTerminal";
-import { EyeTerminal } from "@/components/EyeTerminal";
-import { Fingerprint } from "@/components/Fingerprint";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -33,21 +30,7 @@ export default function Home() {
           <ProjectsSection />
         </section>
 
-        <section id="circuit">
-          <div className="flex flex-col lg:flex-row gap-6 items-stretch">
-            <div className="lg:w-56 shrink-0">
-              <HandprintTerminal />
-            </div>
-            <div className="lg:w-56 shrink-0">
-              <EyeTerminal />
-            </div>
-            <div className="lg:w-56 shrink-0">
-              <Fingerprint />
-            </div>
-          </div>
-        </section>
-
-        <section id="skills" className="scroll-mt-16">
+<section id="skills" className="scroll-mt-16">
           <SkillsPanel />
         </section>
       </main>
