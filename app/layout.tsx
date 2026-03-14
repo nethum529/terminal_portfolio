@@ -4,6 +4,7 @@ import { Pixelify_Sans } from "next/font/google";
 import { StarField } from "@/components/ui/StarField";
 import { EtheralShadow } from "@/components/ui/etheral-shadow";
 import { FilmGrain } from "@/components/ui/FilmGrain";
+import { SmoothScroll } from "@/components/ui/SmoothScroll";
 import "./globals.css";
 
 const pixelifySans = Pixelify_Sans({
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <StarField />
         <div className="vignette" aria-hidden="true" />
         <div className="scanlines" aria-hidden="true" />
+        <SmoothScroll />
         {children}
         <FilmGrain />
       </body>
