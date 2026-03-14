@@ -27,7 +27,7 @@ export default function Home() {
           </ScrollReveal>
         </section>
 
-        <section id="identity">
+        <section id="identity" className="scroll-mt-16">
           <ScrollReveal delay={0.05}>
             <IdentificationPanel />
           </ScrollReveal>
@@ -46,9 +46,7 @@ export default function Home() {
         </section>
       </main>
 
-      <ScrollReveal delay={0.05}>
-        <Footer />
-      </ScrollReveal>
+      <Footer />
     </>
   );
 }
