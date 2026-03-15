@@ -17,7 +17,7 @@ const IDENT = [
   { k: "NAME",      v: "NETHUM WEERASINGHE" },
   { k: "EDUCATION", v: "TEXAS A&M" },
   { k: "CURRENTLY AT", v: "SKETCH RECOGNITION LAB" },
-  { k: "EMAIL",     v: "NETHUMWEERASINGHE.NW@GMAIL.COM" },
+  { k: "FOCUS",     v: "COMPUTER VISION // ML" },
 ];
 
 export function Hero() {
