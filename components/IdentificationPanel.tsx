@@ -7,22 +7,16 @@ export function IdentificationPanel() {
   return (
     <div className="flex flex-col gap-4">
       <TerminalWindow title="ABOUT ME" delay={0.05} glisten>
-        <div className="space-y-3 text-lg" style={{ color: "#ffffff" }}>
-          {[
-            "Computer Science student at Texas A&M University.",
-            "Researching uncertainty quantification of medical image segmentation at Sketch Recognition Labs.",
-            "Interested in Computer Vision and Machine Learning — working towards impactful research in these fields.",
-            "Love building applicable software and products that solve real problems.",
-          ].map((line, i) => (
-            <motion.div key={i} className="flex gap-2 leading-5"
-              initial={{ opacity: 0, x: -4 }} whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.22, delay: 0.05 + i * 0.07 }}
-            >
-              <span style={{ color: "#ffffff", userSelect: "none", flexShrink: 0 }}>›</span>
-              <span>{line}</span>
-            </motion.div>
-          ))}
-        </div>
+        <motion.p
+          className="text-lg leading-relaxed"
+          style={{ color: "#ffffff" }}
+          initial={{ opacity: 0, x: -4 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.3, delay: 0.05 }}
+        >
+          Hello! I&apos;m a Computer Science student at Texas A&amp;M. I&apos;m currently researching uncertainty quantification of medical image segmentation at Sketch Recognition Labs. I&apos;m very interested in Computer Vision and Machine Learning and working towards impactful research in these fields. I also love applicable software and building products that solve real problems.
+        </motion.p>
       </TerminalWindow>
 
       {/* Resume — full width, prominent */}
