@@ -40,10 +40,10 @@ export function Hero() {
       <div className="t-body flex flex-col gap-8">
         {/* Greeting — full width */}
         <div>
-          <p className="text-3xl font-medium tracking-wide phosphor-glow" style={{ color: "#ffffff", letterSpacing: "0.04em" }}>
+          <p className="text-5xl font-medium tracking-wide phosphor-glow" style={{ color: "#ffffff", letterSpacing: "0.04em" }}>
             Hey, I&apos;m Nethum Weerasinghe
           </p>
-          <p className="text-lg mt-2 phosphor-glow" style={{ color: "#ffffff", letterSpacing: "0.12em" }}>
+          <p className="text-2xl mt-3 phosphor-glow" style={{ color: "#ffffff", letterSpacing: "0.12em" }}>
             SOFTWARE ENGINEER // CS @ TEXAS A&amp;M
           </p>
         </div>
@@ -80,8 +80,8 @@ export function Hero() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.22, delay: i * 0.07 }}
                     >
-                      <span className="mono-label w-28 shrink-0">{k}</span>
-                      <span className="text-base" style={{ color: "#ffffff" }}>{v}</span>
+                      <span className="mono-label shrink-0 whitespace-nowrap">{k}</span>
+                      <span className="text-base ml-4" style={{ color: "#ffffff" }}>{v}</span>
                     </motion.div>
                   ))}
 
