@@ -21,7 +21,7 @@ export function SkillsPanel() {
         >
           <div className="space-y-3">
             {group.items.map((item, i) => (
-              <motion.div key={item} className="flex items-center gap-3 text-lg leading-8"
+              <motion.div key={item} className="flex items-center gap-3 text-xl leading-10"
                 style={{ color: "#ffffff" }}
                 initial={{ opacity: 0, x: -4 }} whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}

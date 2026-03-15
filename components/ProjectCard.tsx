@@ -36,7 +36,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         <span className="t-tag">[{String(index + 1).padStart(2, "0")}]</span>
       </div>
       <div className="t-body flex flex-col gap-4">
-        <p className="text-lg leading-8" style={{ color: "#ffffff", minHeight: "4rem" }}>
+        <p className="text-xl leading-9" style={{ color: "#ffffff", minHeight: "4rem" }}>
           {project.description}
         </p>
         <div className="flex gap-4">

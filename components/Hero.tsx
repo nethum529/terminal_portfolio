@@ -94,7 +94,7 @@ export function Hero() {
       </div>
 
       {/* Status bar */}
-      <div className="flex items-center justify-between px-5 py-3" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+      <div className="flex items-center justify-between px-7 py-4" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
         <span className="mono-label-dim">
           {booted ? "SYSTEM ONLINE" : "LOADING..."}
         </span>

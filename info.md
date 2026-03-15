@@ -23,3 +23,5 @@ Vero: A drug-interaction checker, helps medical professionals and patients ensur
 ● Frameworks & Libraries: FastAPI, Next.js, Pandas, Numpy, PyTorch
 ● Databases & Tools: Git, Supabase, Google Colab, Jupyter Notebooks
 
+## About Me
+Hello! I'm a Computer Science student at Texas A&M. I'm currently researching uncertainty quantification of medical image segmentation at Sketch Recognition Labs. I'm very interested in Computer Vision and Machine Learning and working towards impactful research in these fields. I also love applicable software and building products that solve real problems.

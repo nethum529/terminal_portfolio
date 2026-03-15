@@ -8,7 +8,7 @@ export function IdentificationPanel() {
     <div className="flex flex-col gap-4">
       <TerminalWindow title="ABOUT ME" delay={0.05} glisten>
         <motion.p
-          className="text-lg leading-relaxed"
+          className="text-xl leading-relaxed"
           style={{ color: "#ffffff" }}
           initial={{ opacity: 0, x: -4 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -23,7 +23,7 @@ export function IdentificationPanel() {
       <TerminalWindow title="RESUME // CV" delay={0.15}>
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <p className="text-lg" style={{ color: "#ffffff", letterSpacing: "0.05em" }}>
+            <p className="text-xl" style={{ color: "#ffffff", letterSpacing: "0.05em" }}>
               Nethum Weerasinghe — Software Engineer
             </p>
             <p className="mono-label mt-1.5">B.S. Computer Science · Texas A&amp;M University · Sketch Recognition Labs</p>
@@ -32,7 +32,7 @@ export function IdentificationPanel() {
             href="/Don_Weerasinghe.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 px-8 py-4 text-lg font-medium tracking-widest"
+            className="shrink-0 px-10 py-5 text-xl font-medium tracking-widest"
             style={{
               border: "1px solid rgba(255,255,255,0.40)",
               color: "#ffffff",

@@ -29,15 +29,15 @@ export function ContactSection() {
               href={href}
               target={href.startsWith("http") ? "_blank" : "_self"}
               rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="flex flex-col gap-3 p-6"
+              className="flex flex-col gap-4 p-8"
               style={{
                 border: "1px solid rgba(255,255,255,0.22)",
                 background: "rgba(255,255,255,0.03)",
               }}
             >
               <span className="mono-label" style={{ color: "#ffffff" }}>{label}</span>
-              <span className="text-xl font-medium" style={{ color: "#ffffff", letterSpacing: "0.03em" }}>{display}</span>
-              <span className="text-base" style={{ color: "#ffffff" }}>{sub}</span>
+              <span className="text-2xl font-medium" style={{ color: "#ffffff", letterSpacing: "0.03em" }}>{display}</span>
+              <span className="text-lg" style={{ color: "#ffffff" }}>{sub}</span>
             </a>
           ))}
         </div>
