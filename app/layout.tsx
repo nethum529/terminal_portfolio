@@ -15,7 +15,7 @@ const pixelifySans = Pixelify_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "NETHUM.WEERASINGHE // SYS",
+  title: "NETHUM.SYS",
   description: "Developer portfolio — Nethum Weerasinghe, CS @ Texas A&M",
 };
 
