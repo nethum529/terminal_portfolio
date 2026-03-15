@@ -15,7 +15,7 @@ export function ScrollReveal({ children, className, delay = 0 }: ScrollRevealPro
       className={className}
       initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
+      viewport={{ once: false, margin: "-60px" }}
       transition={{
         duration: 0.38,
         delay,
