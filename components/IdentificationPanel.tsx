@@ -9,9 +9,10 @@ export function IdentificationPanel() {
       <TerminalWindow title="ABOUT ME" delay={0.05} glisten>
         <div className="space-y-3 text-lg" style={{ color: "#ffffff" }}>
           {[
-            "Student researcher at Texas A&M University.",
-            "Operating at Sketch Recognition Labs — HCI & gesture research.",
-            "Building across full-stack web and systems engineering.",
+            "Computer Science student at Texas A&M University.",
+            "Researching uncertainty quantification of medical image segmentation at Sketch Recognition Labs.",
+            "Interested in Computer Vision and Machine Learning — working towards impactful research in these fields.",
+            "Love building applicable software and products that solve real problems.",
           ].map((line, i) => (
             <motion.div key={i} className="flex gap-2 leading-5"
               initial={{ opacity: 0, x: -4 }} whileInView={{ opacity: 1, x: 0 }}
