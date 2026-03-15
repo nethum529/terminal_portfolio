@@ -49,7 +49,7 @@ export function Hero() {
         </div>
 
         {/* Two columns: boot + ident */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-4">
           {/* Left: boot sequence */}
           <div>
             <p className="mono-label mb-2">BOOT SEQUENCE</p>
@@ -80,7 +80,7 @@ export function Hero() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.22, delay: i * 0.07 }}
                     >
-                      <span className="mono-label w-36 shrink-0">{k}</span>
+                      <span className="mono-label w-28 shrink-0">{k}</span>
                       <span className="text-base" style={{ color: "#ffffff" }}>{v}</span>
                     </motion.div>
                   ))}
